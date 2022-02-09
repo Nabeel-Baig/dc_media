@@ -14,6 +14,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::view('/','front.home');
+Route::get('/about', [App\Http\Controllers\FrontendController::class, 'about']);
+Route::get('/acting', [App\Http\Controllers\FrontendController::class, 'acting']);
+Route::get('/classes', [App\Http\Controllers\FrontendController::class, 'classes']);
+Route::get('/contact', [App\Http\Controllers\FrontendController::class, 'contact']);
+Route::get('/digital', [App\Http\Controllers\FrontendController::class, 'digital']);
+Route::get('/filmmaker', [App\Http\Controllers\FrontendController::class, 'filmmaker']);
+
 Auth::routes();
 //Auth::routes(['register' => true]);
 Route::get('verify/resend', [App\Http\Controllers\Auth\TwoFactorController::class, 'resend'])->name('verify.resend');

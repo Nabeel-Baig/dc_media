@@ -1,0 +1,14 @@
+.contactUsSection01 {
+    background-image: url("../Images/contact-us/contact-usMainBanner.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 80px 20px;
+}
+
+.contact-info {
+    background-image: url("../Images/contact-us/mapBg.webp");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}

@@ -1,0 +1,559 @@
+@font-face {
+    font-family: "Visby CF Heavy";
+    src: url("../FontAwesome/customFonts/8af4648faad736e5dafed2c6c9775bb3.ttf");
+    src: url("../FontAwesome/customFonts/8af4648faad736e5dafed2c6c9775bb3.woff") format("woff");
+    src: url("../FontAwesome/customFonts/8af4648faad736e5dafed2c6c9775bb3.woff2") format("woff");
+}
+
+html,
+body {
+    font-family: "Visby CF Heavy";
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+/* header */
+
+.phoneHeader {
+    position: relative;
+}
+
+.phoneHeader::before {
+    content: "\f879";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 600;
+    background: #df6019;
+    color: #fff;
+    font-size: 0.7rem;
+    height: 30px;
+    width: 30px;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    left: -40px;
+    top: 10px;
+    border-radius: 50%;
+}
+.circle {
+    border: 5px solid rgba(255, 255, 255, 0.6);
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    list-style-type: none;
+    border-radius: 50%;
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    display: block;
+    -webkit-animation: growUp 3s;
+    -moz-animation: growUp 3s;
+    -ms-animation: growUp 3s;
+    -o-animation: growUp 3s;
+    animation: growUp 3s;
+    animation-iteration-count: infinite;
+    left: -38px;
+    top: 14px;
+}
+
+.phoneHeader h6 {
+    color: #df6019;
+    font-weight: 400;
+    font-size: 0.9rem;
+}
+
+.phoneHeader a {
+    color: #393f44;
+    text-decoration: none;
+}
+
+.navbar {
+    transition: 1s;
+}
+
+a.navbar-brand img {
+    width: 100%;
+    max-width: 75%;
+    transition: 1s;
+}
+
+@-webkit-keyframes growUp {
+    0% {
+        -webkit-transform: scale(0);
+    }
+    100% {
+        -webkit-transform: scale(1);
+    }
+}
+@keyframes growUp {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.active {
+    position: relative;
+    color: #fff !important;
+}
+
+.active::before {
+    background: url("../Images/header/activeLink.png");
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: 100% 75%;
+    position: absolute;
+    content: "";
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    left: 0;
+    right: 0;
+    margin: auto;
+    top: 6px;
+}
+
+.navbar-light .navbar-nav .nav-link{
+    font-size: 0.88rem;
+}
+
+nav.breadcrumbNav {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    display: flex;
+}
+
+.breadcrumb-item.activeLink {
+    color: #de5001;
+    text-decoration: underline;
+}
+
+.breadcrumb {
+    position: relative;
+    z-index: 999;
+}
+
+/* end */
+
+/* CommonCss */
+
+.homeSection06 {
+    padding: 60px 20px;
+}
+
+.homeSection04Card h2::before {
+    content: "";
+    position: absolute;
+    width: 50px;
+    height: 5px;
+    background: #de5001;
+    top: -15px;
+    right: 0;
+    left: 0;
+    margin: auto;
+}
+
+.homeSection04Card h6::before {
+    content: "";
+    position: absolute;
+    width: 40px;
+    height: 3px;
+    background: #de5001;
+    top: -10px;
+    right: 0;
+    left: 0;
+    margin: auto;
+}
+.homeSection04Card h6,
+.homeSection04Card h2 {
+    color: #393f44;
+    position: relative;
+}
+
+.homeSection04Card h6 span,
+.homeSection04Card h2 span {
+    color: #de5001;
+}
+
+.card.homeSection04Card {
+    position: relative;
+    background-color: #f2f4fa;
+    margin: 40px auto;
+    text-align: center;
+    color: #332f42;
+    height: 100%;
+    max-width: 350px;
+    border: none;
+}
+
+.card.homeSection04Card p {
+    font-size: 0.9rem;
+    text-align: center;
+    margin: 20px auto;
+    height: 100%;
+    max-height: 70px;
+    overflow-y: scroll;
+}
+
+/* width */
+.card.homeSection04Card p::-webkit-scrollbar {
+    width: 5px;
+    border-radius: 20px;
+}
+
+/* Track */
+.card.homeSection04Card p::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+.card.homeSection04Card p::-webkit-scrollbar-thumb {
+    background: #de5001;
+}
+
+/* Handle on hover */
+.card.homeSection04Card p::-webkit-scrollbar-thumb:hover {
+    background: #802f03;
+}
+
+.card.homeSection04Card p::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+}
+
+.card.homeSection04Card img {
+    border-radius: 10px;
+    object-fit: cover;
+    max-height: 200px;
+    width: 100%;
+    height: 100%;
+}
+
+.homeSection04CardBtn {
+    text-decoration: none;
+    width: 50%;
+    font-size: 0.9rem;
+    color: #322f43;
+    transition: 1s;
+    margin: auto;
+    display: block;
+    position: absolute;
+    bottom: 30px;
+    right: 0;
+    left: 0;
+}
+
+.homeSection04CardBtn:hover {
+    color: #de5001;
+    transition: 1s;
+}
+
+.homeSection04CardBtn i {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    justify-content: center;
+    background: #332f42;
+    display: inline-flex;
+    align-items: center;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 0.7rem;
+    max-height: 30px;
+    max-width: 30px;
+    transition: 1s;
+    padding: 10px;
+    color: #fff;
+    height: 100%;
+    width: 100%;
+}
+
+.homeSection04CardBtn:hover i {
+    background: #de5001;
+    transition: 1s;
+}
+
+.previous-button {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+.next-button {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+.is-control {
+    background: #332f42;
+    border-radius: 50%;
+    padding: 0 10px;
+    z-index: 1;
+    cursor: pointer;
+    font-size: 20px;
+    color: #fff;
+    transition: all 0.2s linear;
+    border: none;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.is-control:hover {
+    background-color: #de5001;
+    color: #fff;
+}
+
+.is-control:focus {
+    background-color: #de5001;
+    color: #fff;
+}
+
+.card.StudentReviews {
+    padding: 3px;
+    border: none;
+    border-radius: 10px;
+}
+
+.StudentReviews .content {
+    background-color: #fff !important;
+    border-radius: 10px;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    padding: 40px;
+    min-height: 300px;
+}
+
+.StudentReviews::before {
+    background-image: url("../Images/homePage/sliderCardBg.png");
+    background-size: 100% 100%;
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    right: 0px;
+    left: 0;
+    bottom: 0px;
+    top: 0;
+    margin: auto;
+}
+
+.slick-initialized .slick-slide {
+    margin: auto 10px;
+    padding: 10px;
+}
+
+.StudentReviews .content p {
+    font-size: 0.9rem;
+    text-align: center;
+    font-family: -webkit-pictograph;
+    font-weight: 600;
+    color: #332f42;
+}
+
+.StudentReviews .content h6 {
+    position: relative;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.StudentReviews .content h6::before {
+    content: "\f10d";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 600;
+    font-size: 2rem;
+    position: absolute;
+    left: 20px;
+    color: #332f42;
+}
+
+.viewAll {
+    box-shadow: 0 0.5rem 1rem rgba(222, 80, 1, 0.6) !important;
+    border: 1px solid transparent;
+    text-decoration: none;
+    background: #de5001;
+    border-radius: 10px;
+    width: fit-content;
+    padding: 10px 20px;
+    text-align: center;
+    transition: 1s;
+    display: block;
+    color: #fff;
+    margin: auto;
+}
+
+.viewAll:hover {
+    border: 1px solid #de5001;
+    background: transparent;
+    color: #de5001;
+    transition: 1s;
+}
+
+/* End */
+
+/* footer */
+
+.footer {
+    background: url("../Images/footer/footerBg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    padding: 60px 20px;
+}
+
+.mediaLinks {
+    list-style: none;
+    padding-left: 0;
+    display: flex;
+}
+
+.mediaLinks li {
+    box-shadow: 0 0.5rem 1rem rgba(123, 184, 242, 0.3);
+    margin: auto 10px;
+    border: 1px solid #b3cee8;
+    color: #b3cee8;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.8rem;
+    border-radius: 50%;
+    transition: 1s;
+}
+
+.mediaLinks li:hover {
+    background: #b3cee8;
+    border: 1px solid transparent;
+    color: #fff;
+    transition: 1s;
+}
+
+.footerSocialMeadi h6 {
+    position: relative;
+    margin-bottom: 0;
+    color: #70a6d8;
+}
+
+.footerSocialMeadi h6::before {
+    content: "";
+    background: #9fc9f1;
+    height: 2px;
+    width: 20%;
+    position: absolute;
+    bottom: -10px;
+}
+
+.footerSocialMeadi p {
+    font-size: 0.9rem;
+    font-family: -webkit-pictograph;
+}
+
+ul.FooterLinks {
+    list-style: none;
+}
+
+li.email h6,
+li.callUs h6,
+li.footerAddress h6 {
+    color: #000;
+}
+
+li.email h6::before,
+li.callUs h6::before,
+li.footerAddress h6::before {
+    content: "";
+    background: transparent;
+}
+
+li.footerAddress h6::before {
+    position: absolute;
+    content: "\f3c5";
+    left: -30px;
+    top: 0;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 600;
+}
+
+li.callUs h6::before {
+    position: absolute;
+    content: "\f3cd";
+    left: -30px;
+    top: 0;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 600;
+}
+
+li.email h6::before {
+    position: absolute;
+    content: "\f0e0";
+    left: -30px;
+    top: 0;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 600;
+}
+
+ul.FooterLinks li {
+    margin: auto 0 15px;
+}
+
+ul.FooterLinks a {
+    color: #a2a2a9;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: 2s;
+    line-height: 1;
+}
+
+ul.FooterLinks a:hover {
+    padding-left: 5px;
+    transition: 2s;
+    color: #000;
+}
+
+.Newsletter h5 {
+    margin-top: 50px;
+    font-size: 1.2rem;
+}
+
+.Newsletter .input-group input {
+    background: transparent;
+    font-size: 0.9rem;
+}
+
+.Newsletter .input-group span {
+    background: transparent;
+    color: #adb0bc;
+}
+
+.scrolled {
+    background-color: rgba(0, 0, 0, 0.6) !important;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: 1s;
+}
+
+.scrolled a {
+    color: #fff !important;
+    transition: 1s;
+}
+
+.scrolled a.navbar-brand img {
+    max-width: 60%;
+    transition: 1s;
+}
+
+/* End */

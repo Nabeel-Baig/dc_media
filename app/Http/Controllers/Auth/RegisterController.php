@@ -82,7 +82,7 @@ class RegisterController extends Controller
             'dob' => date('Y-m-d', strtotime($data['dob'])),
             'avatar' => "/assets/uploads/users/" . $avatarName,
         ]);
-        $user->roles()->sync(2);
+        $user->roles()->sync(3);
         return $user;
     }
 }

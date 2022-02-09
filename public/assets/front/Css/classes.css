@@ -1,0 +1,17 @@
+.classesSection01 {
+    background-image: url("../Images/classesPages/classesMainBanner.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 80px 20px;
+}
+
+.classesSection01 .mainBannerCard h1 {
+    font-size: 2rem;
+}
+
+.classesSection01 .mainBannerCard h1 span::before {
+    padding: 30px 62px;
+    left: -6px;
+    top: -8px;
+}
