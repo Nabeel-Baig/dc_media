@@ -1,5 +1,5 @@
 @extends('front.include.app')
-@section('title') About Us @endsection
+@section('title') Pricing @endsection
 @section('app')
 <section class="aboutUsSection01" id="aboutUsSection01">
    <div class="container">
@@ -73,7 +73,7 @@
             </div>
             <!-- <div href="#" class="button btn btn-primary bg-orange w-100 shadow-lg border-0">Order Now 1,644 $</div> -->
             <!-- <button type="button" href="{{route('register')}}" class="button btn btn-primary bg-orange w-100 shadow-lg border-0">Order Now 1,644 $</button> -->
-            <a href="{{route('register')}}" onclick="myFunction1()" class="button btn btn-primary bg-orange w-100 shadow-lg border-0">Order Now 1,644 $</a>
+            <a href="{{route('price',['id' => 'membership-benefits'])}}" class="button btn btn-primary bg-orange w-100 shadow-lg border-0">Order Now 1,644 $</a>
          </div>
          <div class="col-lg-3 m-auto mt-0">
             <div class="card shadow">
@@ -104,7 +104,7 @@
                   <li>$400 3 Hours</li>
                </ul>
             </div>
-               <a href="{{route('register')}}" onclick="myFunction2()" class="button btn btn-primary bg-orange w-100 shadow-lg border-0">Order Now 1,939 $</a>
+               <a href="{{ route('price',['id' => 'non-member'] )}}" class="button btn btn-primary bg-orange w-100 shadow-lg border-0">Order Now 1,939 $</a>
          </div>
          <div class="col-lg-2"></div>
       </div>
@@ -121,7 +121,7 @@
          <div class="col-lg-3 mb-5">
             <div class="card homeSection04Card shadow" data-aos="zoom-in-up" data-aos="zoom-in-up">
                <div class="card-body">
-                  <img class="w-100" src="{{ asset('assets/front/') }}/Images/homePage/homeSection04CardImg01.jpg" alt="{{ asset('assets/front/') }}/Images/homePage/homeSection04CardImg01.jpg">
+                  <img class="w-100" src="{{ asset('assets/front/') }}/Images/pricing/banner.jpg" alt="{{ asset('assets/front/') }}/Images/pricing/banner.jpg">
                   <div class="col-lg-12 m-auto mt-4 text-center">
                      <div class="homeSection04Card">
                         <h6>BASIC <span>EDITING</span></h6>
@@ -249,25 +249,4 @@
       </div>
    </div>
 </section>
-
-<script>
-function myFunction1() {
-   console.log("999999999");
-      <?php
-         Session::forget('amount');
-
-         Session::put('amount', 1644);
-      ?>
-}
-</script>
-<script>
-function myFunction2() {
-   console.log("11111111");
-      <?php
-         Session::forget('amount');
-
-         Session::put('amount', 1939);
-      ?>
-}
-</script>
 @endsection

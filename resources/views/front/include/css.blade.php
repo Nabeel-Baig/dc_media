@@ -6,4 +6,5 @@
 <link rel="stylesheet" href="{{ asset('assets/front/') }}/FontAwesome/css/all.min.css">
 <link rel="stylesheet" href="{{ asset('assets/front/') }}/Css/responsive.css">
 <link rel="stylesheet" href="{{ asset('assets/front/') }}/Css/<?= basename($_SERVER["SCRIPT_FILENAME"], '.php') ?>.css">
+<link rel="stylesheet" href="{{ asset('assets/front/') }}/Css/pricing.css">
 <link rel="stylesheet" href="{{ asset('assets/front/') }}/Css/Common_Css.css">

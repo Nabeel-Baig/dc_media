@@ -48,18 +48,17 @@
 
                                         <div>
                                             <h5 class="text-primary">Register account</h5>
-                                            <p class="text-muted">Get your free {{ $setting->title ?? '' }} account now.</p>
+                                            <p class="text-muted">{{ucwords(str_replace('-',' ',session()->get('package_name'))).' -  $'.session()->get('amount')}}</p>
                                         </div>
 
                                         <div class="mt-4">
-                                            <form method="POST" class="form-horizontal" action="{{ route('register') }}"
-                                                class="require-validation"
-                                                data-cc-on-file="false"
-                                                data-stripe-publishable-key="{{ env('STRIPE_KEY') }}"
-                                                id="payment-form"
-                                                enctype="multipart/form-data">
+                                            <form method="POST" class="form-horizontal validation" action="{{ route('register') }}"
+                                                  data-cc-on-file="false"
+                                                  data-stripe-publishable-key="{{ env('STRIPE_KEY') }}"
+                                                  id="payment-form"
+                                                  enctype="multipart/form-data">
                                                 @csrf
-                                                <div class="mb-3">
+                                                <div class="mb-3 required">
                                                     <label for="useremail" class="form-label">Email</label>
                                                     <input type="email"
                                                            class="form-control @error('email') is-invalid @enderror"
@@ -73,7 +72,7 @@
                                                     @enderror
                                                 </div>
 
-                                                <div class="mb-3">
+                                                <div class="mb-3 required">
                                                     <label for="username" class="form-label">Username</label>
                                                     <input type="text"
                                                            class="form-control @error('name') is-invalid @enderror"
@@ -87,13 +86,13 @@
                                                     @enderror
                                                 </div>
 
-                                                <div class="mb-3">
-                                                    <label for="username" class="form-label">Phone</label>
+                                                <div class="mb-3 required">
+                                                    <label for="phone" class="form-label">Phone</label>
                                                     <input type="number"
                                                            class="form-control @error('phone') is-invalid @enderror"
                                                            value="{{ old('phone') }}" id="phone" name="phone" autofocus
                                                            required
-                                                           placeholder="Enter username">
+                                                           placeholder="Phone">
                                                     @error('phone')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
@@ -101,11 +100,12 @@
                                                     @enderror
                                                 </div>
 
-                                                <div class="mb-3">
-                                                    <label for="username" class="form-label">Name on Card</label>
+                                                <div class="mb-3 required">
+                                                    <label for="cardName" class="form-label">Name on Card</label>
                                                     <input type="text"
                                                            class="form-control @error('cardName') is-invalid @enderror"
-                                                           value="{{ old('cardName') }}" id="cardName" name="cardName" autofocus
+                                                           value="{{ old('cardName') }}" id="cardName" name="cardName"
+                                                           autofocus
                                                            required
                                                            placeholder="Enter Name on Card">
                                                     @error('cardName')
@@ -115,11 +115,12 @@
                                                     @enderror
                                                 </div>
 
-                                                <div class="mb-3">
-                                                    <label for="username" class="form-label">Card Number</label>
+                                                <div class="mb-3 required">
+                                                    <label for="cardNumber" class="form-label">Card Number</label>
                                                     <input type="number"
-                                                           class="form-control @error('cardNumber') is-invalid @enderror"
-                                                           value="{{ old('cardNumber') }}" id="cardNumber" name="cardNumber" autofocus
+                                                           class="form-control card-num @error('cardNumber') is-invalid @enderror"
+                                                           value="{{ old('cardNumber') }}" id="cardNumber"
+                                                           name="cardNumber" autofocus
                                                            required
                                                            placeholder="Enter Card Number">
                                                     @error('cardNumber')
@@ -129,10 +130,10 @@
                                                     @enderror
                                                 </div>
 
-                                                <div class="mb-3">
+                                                <div class="mb-3 required">
                                                     <label for="username" class="form-label">CVC</label>
                                                     <input type="number"
-                                                           class="form-control @error('cvs') is-invalid @enderror"
+                                                           class="form-control card-cvc @error('cvs') is-invalid @enderror"
                                                            value="{{ old('cvs') }}" id="cvs" name="cvs" autofocus
                                                            required
                                                            placeholder="Enter CVC">
@@ -143,10 +144,10 @@
                                                     @enderror
                                                 </div>
 
-                                                <div class="mb-3">
+                                                <div class="mb-3 required">
                                                     <label for="username" class="form-label">Expiration Month</label>
                                                     <input type="number"
-                                                           class="form-control @error('month') is-invalid @enderror"
+                                                           class="form-control card-expiry-month @error('month') is-invalid @enderror"
                                                            value="{{ old('month') }}" id="month" name="month" autofocus
                                                            required
                                                            placeholder="Enter Expiration Month">
@@ -157,10 +158,10 @@
                                                     @enderror
                                                 </div>
 
-                                                <div class="mb-3">
+                                                <div class="mb-3 required">
                                                     <label for="username" class="form-label">Expiration Year</label>
                                                     <input type="number"
-                                                           class="form-control @error('year') is-invalid @enderror"
+                                                           class="form-control card-expiry-year @error('year') is-invalid @enderror"
                                                            value="{{ old('year') }}" id="year" name="year" autofocus
                                                            required
                                                            placeholder="Enter Expiration Year">
@@ -171,7 +172,7 @@
                                                     @enderror
                                                 </div>
 
-                                                <div class="mb-3">
+                                                <div class="mb-3 required">
                                                     <label for="userpassword" class="form-label">Password</label>
                                                     <input type="password"
                                                            class="form-control @error('password') is-invalid @enderror"
@@ -184,7 +185,7 @@
                                                     @enderror
                                                 </div>
 
-                                                <div class="mb-3">
+                                                <div class="mb-3 required">
                                                     <label for="confirmpassword" class="form-label">Confirm
                                                         Password</label>
                                                     <input type="password"
@@ -199,7 +200,7 @@
                                                     @enderror
                                                 </div>
 
-                                                <div class="mb-3">
+                                                <div class="mb-3 required">
                                                     <label for="userdob">Date of Birth</label>
                                                     <div class="input-group" id="datepicker1">
                                                         <input type="text"
@@ -234,6 +235,12 @@
                                                     @enderror
                                                 </div>
 
+                                                <div class="mb-3">
+                                                    <div class='col-md-12 hide error form-group'>
+                                                        <div class='alert-danger alert'>Fix the errors before you begin.</div>
+                                                    </div>
+                                                </div>
+
                                                 <div class="mt-4 d-grid">
                                                     <button class="btn btn-primary waves-effect waves-light"
                                                             type="submit">Register
@@ -246,7 +253,6 @@
                                                                                            class="text-primary">Terms of
                                                             Use</a></p>
                                                 </div>
-                                                    <input type="text" name="price" value="{{Session::get('amount')}}">
                                             </form>
 
                                             <div class="mt-3 text-center">
@@ -292,59 +298,57 @@
 
 
         <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
-  
-<script type="text/javascript">
-$(function() {
-   
-    var $form         = $(".require-validation");
-   
-    $('form.require-validation').bind('submit', function(e) {
-        var $form         = $(".require-validation"),
-        inputSelector = ['input[type=email]', 'input[type=password]',
-                         'input[type=text]', 'input[type=file]',
-                         'textarea'].join(', '),
-        $inputs       = $form.find('.required').find(inputSelector),
-        $errorMessage = $form.find('div.error'),
-        valid         = true;
-        $errorMessage.addClass('hide');
-  
-        $('.has-error').removeClass('has-error');
-        $inputs.each(function(i, el) {
-          var $input = $(el);
-          if ($input.val() === '') {
-            $input.parent().addClass('has-error');
-            $errorMessage.removeClass('hide');
-            e.preventDefault();
-          }
-        });
-   
-        if (!$form.data('cc-on-file')) {
-          e.preventDefault();
-          Stripe.setPublishableKey($form.data('stripe-publishable-key'));
-          Stripe.createToken({
-            number: $('.card-number').val(),
-            cvc: $('.card-cvc').val(),
-            exp_month: $('.card-expiry-month').val(),
-            exp_year: $('.card-expiry-year').val()
-          }, stripeResponseHandler);
-        }
-  
-  });
-  
-  function stripeResponseHandler(status, response) {
-        if (response.error) {
-            $('.error')
-                .removeClass('hide')
-                .find('.alert')
-                .text(response.error.message);
-        } else {
-            /* token contains id, last4, and card type */
-            var token = response['id'];
-               
-            $form.find('input[type=text]').empty();
-            $form.append("<input type='hidden' name='stripeToken' value='" + token + "'/>");
-            $form.get(0).submit();
-        }
-    }
-    </script>
+
+        <script type="text/javascript">
+            $(function () {
+                var $form = $(".validation");
+                $('form.validation').bind('submit', function (e) {
+                    var $form = $(".validation"),
+                        inputVal = ['input[type=email]', 'input[type=password]',
+                            'input[type=text]', 'input[type=file]',
+                            'textarea'].join(', '),
+                        $inputs = $form.find('.required').find(inputVal),
+                        $errorStatus = $form.find('div.error'),
+                        valid = true;
+                    $errorStatus.addClass('hide');
+
+                    $('.has-error').removeClass('has-error');
+                    $inputs.each(function (i, el) {
+                        var $input = $(el);
+                        if ($input.val() === '') {
+                            $input.parent().addClass('has-error');
+                            $errorStatus.removeClass('hide');
+                            e.preventDefault();
+                        }
+                    });
+
+                    if (!$form.data('cc-on-file')) {
+                        e.preventDefault();
+                        Stripe.setPublishableKey($form.data('stripe-publishable-key'));
+                        Stripe.createToken({
+                            number: $('.card-num').val(),
+                            cvc: $('.card-cvc').val(),
+                            exp_month: $('.card-expiry-month').val(),
+                            exp_year: $('.card-expiry-year').val()
+                        }, stripeHandleResponse);
+                    }
+
+                });
+
+                function stripeHandleResponse(status, response) {
+                    if (response.error) {
+                        $('.error')
+                            .removeClass('hide')
+                            .find('.alert')
+                            .text(response.error.message);
+                    } else {
+                        var token = response['id'];
+                        $form.find('input[type=text]').empty();
+                        $form.append("<input type='hidden' name='stripeToken' value='" + token + "'/>");
+                        $form.get(0).submit();
+                    }
+                }
+
+            });
+        </script>
 @endsection

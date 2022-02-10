@@ -23,6 +23,8 @@ Route::view('/digital','front.digital-marketing')->name('digital');
 Route::view('/filmmaker','front.filmmaker-academy')->name('filmmaker');
 Route::view('/pricing','front.pricing')->name('pricing');
 Route::view('/crypto','front.crypto')->name('crypto');
+Route::get('/price',[App\Http\Controllers\Front\PriceController::class, 'index'])->name('price');
+
 // Route::get('/about', [App\Http\Controllers\FrontendController::class, 'about']);
 // Route::get('/acting', [App\Http\Controllers\FrontendController::class, 'acting']);
 // Route::get('/classes', [App\Http\Controllers\FrontendController::class, 'classes']);

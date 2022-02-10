@@ -57,12 +57,13 @@ class RegisterController extends Controller
             'cardName' => ['required', 'string', 'max:255'],
             'cardNumber' => ['required', 'min:15', 'string', 'max:16'],
             'cvs' => ['required',  'min:3','string', 'max:4'],
-            'month' => ['required',  'min:2','string' , 'max:3'],
+            'month' => ['required',  'min:2','integer' , 'max:2'],
             'year' => ['required',  'min:4','string', 'max:5'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:6', 'confirmed'],
             'dob' => ['required', 'date', 'before:today'],
         ]);
+        dd($data);
     }
 
     /**
@@ -79,14 +80,14 @@ class RegisterController extends Controller
             $avatarPath = public_path('/assets/uploads/users/');
             $avatar->move($avatarPath, $avatarName);
         }
-     
+
 
         Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
         $customer = Stripe\Charge::create ([
                 "amount" => 100 *100,
                 "currency" => "usd",
                 "source" => $data->stripeToken,
-                "description" => "OneShot Technologies" 
+                "description" => "OneShot Technologies"
         ]);
         echo "<pre>";
         print_r($customer);die;
