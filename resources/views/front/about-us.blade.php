@@ -1,6 +1,7 @@
 @extends('front.include.header')
 
 <main>
+    
     <section class="aboutUsSection01" id="aboutUsSection01">
         <div class="container">
             <div class="col-lg-6 text-center m-auto pt-5 mt-5 mb-5">
