@@ -1,5 +1,6 @@
-@extends('front.include.header')
-
+@extends('front.include.app')
+@section('title') Filmmaker Academy @endsection
+@section('app')
 <main>
     <section class="aboutUsSection01" id="aboutUsSection01">
         <div class="container">
@@ -30,7 +31,7 @@
                     </p>
                 </div>
                 <div class="col-lg-5 m-auto">
-                    <img class="w-100 shadow rounded" src="Assets/Images/filmmakerAcademy/filmmakerAcademyImg01.jpeg" alt="Assets/Images/filmmakerAcademy/filmmakerAcademyImg01.jpeg">
+                    <img class="w-100 shadow rounded" src="{{ asset('assets/front/') }}/Images/filmmakerAcademy/filmmakerAcademyImg01.jpeg" alt="Assets/Images/filmmakerAcademy/filmmakerAcademyImg01.jpeg">
                 </div>
                 <div class="col-lg-6 m-auto">
                     <div class="dcmaUl">
@@ -63,9 +64,5 @@
             </div>
         </div>
     </section>
-
-    <?php include 'CommonFile/studentReviews.php'; ?>
-
 </main>
-
-@extends('front.include.footer')
+@endsection

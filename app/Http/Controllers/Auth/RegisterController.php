@@ -9,6 +9,8 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Session;
+use Stripe;
 
 class RegisterController extends Controller
 {
@@ -48,16 +50,19 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
-    protected function validator(array $data)
+    protected function validator(array $data )
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
+            'cardName' => ['required', 'string', 'max:255'],
+            'cardNumber' => ['required', 'min:15', 'string', 'max:16'],
+            'cvs' => ['required',  'min:3','string', 'max:4'],
+            'month' => ['required',  'min:2','string' , 'max:3'],
+            'year' => ['required',  'min:4','string', 'max:5'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:6', 'confirmed'],
             'dob' => ['required', 'date', 'before:today'],
-//            'avatar' => ['sometimes','required', 'image' ,'mimes:jpg,jpeg,png','max:1024'],
         ]);
-        dd($data);
     }
 
     /**
@@ -66,7 +71,7 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\Models\User
      */
-    protected function create(array $data)
+    protected function create(array $data )
     {
         if (request()->has('avatar')) {
             $avatar = request()->file('avatar');
@@ -74,6 +79,38 @@ class RegisterController extends Controller
             $avatarPath = public_path('/assets/uploads/users/');
             $avatar->move($avatarPath, $avatarName);
         }
+     
+
+        Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+        $customer = Stripe\Charge::create ([
+                "amount" => 100 *100,
+                "currency" => "usd",
+                "source" => $data->stripeToken,
+                "description" => "OneShot Technologies" 
+        ]);
+        echo "<pre>";
+        print_r($customer);die;
+
+        // insert
+        // $payment = new Payment();
+        // $payment->stripe_id = $customer->stripe_id;
+        // $payment->amount = $customer->amount;
+        // $payment->balance_transaction = $customer->balance_transaction;
+        // $payment->currency = $customer->currency;
+        // $payment->description = $customer->description;
+        // $payment->payment_id = $customer->payment_id;
+        // $payment->country = $customer->country;
+        // $payment->exp_month = $customer->exp_month;
+        // $payment->exp_year = $customer->exp_year;
+        // $payment->fingerprint = $customer->fingerprint;
+        // $payment->card_number = $customer->card_number;
+        // $payment->receipt_url = $customer->receipt_url;
+        // $payment->save();
+
+
+
+
+
 
         $user = User::create([
             'name' => $data['name'],

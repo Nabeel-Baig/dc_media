@@ -1,5 +1,6 @@
-@extends('front.include.header')
-
+@extends('front.include.app')
+@section('title') Acting Academy @endsection
+@section('app')
 <main>
     <section class="aboutUsSection01" id="aboutUsSection01">
         <div class="container">
@@ -8,7 +9,7 @@
                     <h1>Acting Academy</h1>
                     <nav class="breadcrumbNav" aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a class="text-dark" href="index.php">Home</a></li>
+                            <li class="breadcrumb-item"><a class="text-dark" href="{{ route('home') }}">Home</a></li>
                             <li class="breadcrumb-item activeLink">Acting Academy</li>
                         </ol>
                     </nav>
@@ -37,7 +38,7 @@
                     </p>
                 </div>
                 <div class="col-lg-5 m-auto">
-                    <img class="w-100 shadow rounded" src="Assets/Images/actingAcademy/actingAcademyImg01.jpeg" alt="Assets/Images/actingAcademy/actingAcademyImg01.jpeg">
+                    <img class="w-100 shadow rounded" src="{{ asset('assets/front/') }}/Images/actingAcademy/actingAcademyImg01.jpeg" alt="Assets/Images/actingAcademy/actingAcademyImg01.jpeg">
                 </div>
                 <div class="col-lg-6 mt-5">
                     <div class="dcmaUl">
@@ -153,10 +154,6 @@
             </div>
         </div>
     </section>
-
-    {{--<?php include 'CommonFile/studentReviews.php'; ?>--}}
-    @extends('front.include.CommonFile/studentReviews')
-
 </main>
 
-@extends('front.include.footer')
+@endsection

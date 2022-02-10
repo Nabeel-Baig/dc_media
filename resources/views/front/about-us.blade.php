@@ -1,7 +1,7 @@
-@extends('front.include.header')
-
+@extends('front.include.app')
+@section('title') About Us @endsection
+@section('app')
 <main>
-    
     <section class="aboutUsSection01" id="aboutUsSection01">
         <div class="container">
             <div class="col-lg-6 text-center m-auto pt-5 mt-5 mb-5">
@@ -51,7 +51,7 @@
                     </p>
                 </div>
                 <div class="col-lg-5 m-auto">
-                    <img class="w-100 shadow rounded" src="Assets/Images/aboutUS/aboutDcMediaImg.webp" alt="Assets/Images/aboutUS/aboutDcMediaImg.webp">
+                    <img class="w-100 shadow rounded" src="{{ asset('assets/front/') }}/Images/aboutUS/aboutDcMediaImg.webp" alt="{{ asset('assets/front/') }}/Images/aboutUS/aboutDcMediaImg.webp">
                 </div>
                 <div class="col-lg-6 m-auto">
                     <h4>Our Mission</h4>
@@ -61,10 +61,10 @@
                     </p>
                 </div>
                 <div class="col-lg-6">
-                    <img class="w-100 shadow rounded" src="Assets/Images/aboutUS/OurMission.jpg" alt="Assets/Images/aboutUS/OurMission.jpg">
+                    <img class="w-100 shadow rounded" src="{{ asset('assets/front/') }}/Images/aboutUS/OurMission.jpg" alt="{{ asset('assets/front/') }}/Images/aboutUS/OurMission.jpg">
                 </div>
                 <div class="col-lg-6">
-                    <img class="w-100 shadow rounded" src="Assets/Images/aboutUS/OurVision.jpg" alt="Assets/Images/aboutUS/OurVision.jpg">
+                    <img class="w-100 shadow rounded" src="{{ asset('assets/front/') }}/Images/aboutUS/OurVision.jpg" alt="{{ asset('assets/front/') }}/Images/aboutUS/OurVision.jpg">
                 </div>
                 <div class="col-lg-6 m-auto">
                     <h4>Our Vision</h4>
@@ -89,7 +89,7 @@
                     <div class="col-lg-4 mb-5">
                         <div class="card ourTeam shadow" data-aos="fade-right">
                             <div class="card-body">
-                                <img src="Assets/Images/aboutUS/aboutUsImg01.webp" alt="Assets/Images/aboutUS/aboutUsImg01.webp">
+                                <img src="{{ asset('assets/front/') }}/Images/aboutUS/aboutUsImg01.webp" alt="{{ asset('assets/front/') }}/Images/aboutUS/aboutUsImg01.webp">
                                 <h5 class="mb-0">Ricardo Villalba</h5>
                                 <p class="text-muted"><i>Founder & CEO</i></p>
                                 <ul>
@@ -109,7 +109,7 @@
                     <div class="col-lg-4 mb-5">
                         <div class="card ourTeam shadow" data-aos="fade">
                             <div class="card-body">
-                                <img src="Assets/Images/aboutUS/aboutUsImg02.webp" alt="Assets/Images/aboutUS/aboutUsImg02.webp">
+                                <img src="{{ asset('assets/front/') }}/Images/aboutUS/aboutUsImg02.webp" alt="{{ asset('assets/front/') }}/Images/aboutUS/aboutUsImg02.webp">
                                 <h5 class="mb-0">Steve Gonzalez</h5>
                                 <p class="text-muted"><i>Digital Marketing / COO</i></p>
                                 <ul>
@@ -126,7 +126,7 @@
                     <div class="col-lg-4 mb-5">
                         <div class="card ourTeam shadow" data-aos="fade-left">
                             <div class="card-body">
-                                <img src="Assets/Images/aboutUS/aboutUsImg03.webp" alt="Assets/Images/aboutUS/aboutUsImg03.webp">
+                                <img src="{{ asset('assets/front/') }}/Images/aboutUS/aboutUsImg03.webp" alt="{{ asset('assets/front/') }}/Images/aboutUS/aboutUsImg03.webp">
                                 <h5 class="mb-0">Edgar Romero</h5>
                                 <p class="text-muted"><i>Exec. Producer / Creative Director</i></p>
                                 <ul>
@@ -146,7 +146,7 @@
                     <div class="col-lg-4 mb-5">
                         <div class="card ourTeam shadow" data-aos="fade-right">
                             <div class="card-body">
-                                <img src="Assets/Images/aboutUS/aboutUsImg04.webp" alt="Assets/Images/aboutUS/aboutUsImg04.webp">
+                                <img src="{{ asset('assets/front/') }}/Images/aboutUS/aboutUsImg04.webp" alt="{{ asset('assets/front/') }}/Images/aboutUS/aboutUsImg04.webp">
                                 <h5 class="mb-0">Chris Schrack</h5>
                                 <p class="text-muted"><i>Founder / Senior Producer</i></p>
                                 <ul>
@@ -163,7 +163,7 @@
                     <div class="col-lg-4 mb-5">
                         <div class="card ourTeam shadow" data-aos="fade">
                             <div class="card-body">
-                                <img src="Assets/Images/aboutUS/aboutUsImg05.webp" alt="Assets/Images/aboutUS/aboutUsImg05.webp">
+                                <img src="{{ asset('assets/front/') }}/Images/aboutUS/aboutUsImg05.webp" alt="{{ asset('assets/front/') }}/Images/aboutUS/aboutUsImg05.webp">
                                 <h5 class="mb-0">Francia Betanzos</h5>
                                 <p class="text-muted"><i>Project Manager</i></p>
                                 <ul>
@@ -180,7 +180,7 @@
                     <div class="col-lg-4 mb-5">
                         <div class="card ourTeam shadow" data-aos="fade-left">
                             <div class="card-body">
-                                <img src="Assets/Images/aboutUS/aboutUsImg06.webp" alt="Assets/Images/aboutUS/aboutUsImg06.webp">
+                                <img src="{{ asset('assets/front/') }}/Images/aboutUS/aboutUsImg06.webp" alt="{{ asset('assets/front/') }}/Images/aboutUS/aboutUsImg06.webp">
                                 <h5 class="mb-0">Geo Rosendi</h5>
                                 <p class="text-muted"><i>Videographer / Editor</i></p>
                                 <ul>
@@ -197,7 +197,7 @@
                     <div class="col-lg-4 mb-5">
                         <div class="card ourTeam shadow" data-aos="fade-right">
                             <div class="card-body">
-                                <img src="Assets/Images/aboutUS/aboutUsImg07.webp" alt="Assets/Images/aboutUS/aboutUsImg07.webp">
+                                <img src="{{ asset('assets/front/') }}/Images/aboutUS/aboutUsImg07.webp" alt="{{ asset('assets/front/') }}/Images/aboutUS/aboutUsImg07.webp">
                                 <h5 class="mb-0">Fernando Semedo</h5>
                                 <p class="text-muted"><i>Videographer / Editor</i></p>
                                 <ul>
@@ -214,7 +214,7 @@
                     <div class="col-lg-4 mb-5">
                         <div class="card ourTeam shadow" data-aos="fade">
                             <div class="card-body">
-                                <img src="Assets/Images/aboutUS/aboutUsImg08.webp" alt="Assets/Images/aboutUS/aboutUsImg08.webp">
+                                <img src="{{ asset('assets/front/') }}/Images/aboutUS/aboutUsImg08.webp" alt="{{ asset('assets/front/') }}/Images/aboutUS/aboutUsImg08.webp">
                                 <h5 class="mb-0">Quentin Loman</h5>
                                 <p class="text-muted"><i>Communications Director</i></p>
                                 <ul>
@@ -231,7 +231,7 @@
                     <div class="col-lg-4 mb-5">
                         <div class="card ourTeam shadow" data-aos="fade-left">
                             <div class="card-body">
-                                <img src="Assets/Images/aboutUS/aboutUsImg09.webp" alt="Assets/Images/aboutUS/aboutUsImg09.webp">
+                                <img src="{{ asset('assets/front/') }}/Images/aboutUS/aboutUsImg09.webp" alt="{{ asset('assets/front/') }}/Images/aboutUS/aboutUsImg09.webp">
                                 <h5 class="mb-0">Olivia Miles</h5>
                                 <p class="text-muted"><i>Producer</i></p>
                                 <ul>
@@ -248,7 +248,7 @@
                     <div class="col-lg-4 mb-5">
                         <div class="card ourTeam shadow" data-aos="fade-right">
                             <div class="card-body">
-                                <img src="Assets/Images/aboutUS/aboutUsImg10.webp" alt="Assets/Images/aboutUS/aboutUsImg10.webp">
+                                <img src="{{ asset('assets/front/') }}/Images/aboutUS/aboutUsImg10.webp" alt="{{ asset('assets/front/') }}/Images/aboutUS/aboutUsImg10.webp">
                                 <h5 class="mb-0">Brenda Hayes</h5>
                                 <p class="text-muted"><i>Director, "Aint I A Woman" DOC</i></p>
                                 <ul>
@@ -262,7 +262,7 @@
                     <div class="col-lg-4 mb-5">
                         <div class="card ourTeam shadow" data-aos="fade">
                             <div class="card-body">
-                                <img src="Assets/Images/aboutUS/aboutUsImg11.webp" alt="Assets/Images/aboutUS/aboutUsImg11.webp">
+                                <img src="{{ asset('assets/front/') }}/Images/aboutUS/aboutUsImg11.webp" alt="{{ asset('assets/front/') }}/Images/aboutUS/aboutUsImg11.webp">
                                 <h5 class="mb-0">Joy Jewell</h5>
                                 <p class="text-muted"><i>MC- Actress- Host</i></p>
                                 <ul>
@@ -276,7 +276,7 @@
                     <div class="col-lg-4 mb-5">
                         <div class="card ourTeam shadow" data-aos="fade-left">
                             <div class="card-body">
-                                <img src="Assets/Images/aboutUS/aboutUsImg12.webp" alt="Assets/Images/aboutUS/aboutUsImg12.webp">
+                                <img src="{{ asset('assets/front/') }}/Images/aboutUS/aboutUsImg12.webp" alt="{{ asset('assets/front/') }}/Images/aboutUS/aboutUsImg12.webp">
                                 <h5 class="mb-0">Pedro Biaggi</h5>
                                 <p class="text-muted"><i>Radio Personality</i></p>
                                 <ul>
@@ -350,4 +350,4 @@
 
 </main>
 
-@extends('front.include.footer')
+@endsection

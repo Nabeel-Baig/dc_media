@@ -1,5 +1,5 @@
 @extends('front.include.app')
-@section('title') Home @endsection
+@section('title') ACTING ACADEMY @endsection
 @section('app')
     <main>
         <section class="homeSection01" id="homeSection01">
@@ -188,7 +188,7 @@
                                         </div>
                                         <p>Learn everything you need to build a portfolio, audition successfully and win
                                             jobs to advance your acting career.</p>
-                                        <a href="javascript:void(0)">Join a class today <i
+                                        <a href="{{route('pricing')}}">Join a class today <i
                                                 class="fas fa-chevron-right"></i></a>
                                     </div>
                                 </div>
@@ -207,7 +207,7 @@
                                         </div>
                                         <p>Learn more about our pre-production, production, and post-production
                                             mini-courses. </p>
-                                        <a href="javascript:void(0)">Join a class today <i
+                                        <a href="{{route('pricing')}}">Join a class today <i
                                                 class="fas fa-chevron-right"></i></a>
                                     </div>
                                 </div>
@@ -227,7 +227,7 @@
                                         <p>Cryptocurrency is redefining the business of art.
                                             Learn what you need to know to stay ahead of the curve and make better
                                             decisions to secure your financial future! </p>
-                                        <a href="javascript:void(0)">Join a class today <i
+                                        <a href="{{route('pricing')}}">Join a class today <i
                                                 class="fas fa-chevron-right"></i></a>
                                     </div>
                                 </div>
@@ -247,13 +247,13 @@
                                         <p>Our digital marketing courses are designed for small businesses owners who
                                             want to take control of their online marketing, branding,
                                             and social media presence! </p>
-                                        <a href="javascript:void(0)">Join a class today <i
+                                        <a href="{{route('pricing')}}">Join a class today <i
                                                 class="fas fa-chevron-right"></i></a>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <a class="viewAll" href="javascript:void(0)">View All</a>
+                        <a class="viewAll" href="{{route('pricing')}}">View All</a>
                     </div>
                 </div>
             </div>
@@ -283,7 +283,7 @@
                                     capture amazing shots and how to work with
                                     natural lighting, shutter speeds, exposure, lenses, and more!
                                 </p>
-                                <a class="homeSection04CardBtn" href="javascript:void(0)">Join Now <i
+                                <a class="homeSection04CardBtn" href="{{route('pricing')}}">Join Now <i
                                         class="fas fa-chevron-right"></i></a>
                             </div>
                         </div>
@@ -302,7 +302,7 @@
                                     Learn everything you need to make your videos stand out using only phone apps and
                                     basic editing software.
                                 </p>
-                                <a class="homeSection04CardBtn" href="javascript:void(0)">Join Now <i
+                                <a class="homeSection04CardBtn" href="{{route('pricing')}}">Join Now <i
                                         class="fas fa-chevron-right"></i></a>
                             </div>
                         </div>
@@ -322,7 +322,7 @@
                                     media using your smartphone and a few apps to help you
                                     create great content!
                                 </p>
-                                <a class="homeSection04CardBtn" href="javascript:void(0)">Join Now <i
+                                <a class="homeSection04CardBtn" href="{{route('pricing')}}">Join Now <i
                                         class="fas fa-chevron-right"></i></a>
                             </div>
                         </div>
@@ -342,7 +342,7 @@
                                     day-to-day operations and make your creative business
                                     more productive
                                 </p>
-                                <a class="homeSection04CardBtn" href="javascript:void(0)">Join Now <i
+                                <a class="homeSection04CardBtn" href="{{route('pricing')}}">Join Now <i
                                         class="fas fa-chevron-right"></i></a>
                             </div>
                         </div>
@@ -363,7 +363,7 @@
                                     and have a better understanding of what cryptocurrency is offering and how it is
                                     shaping our financial future.
                                 </p>
-                                <a class="homeSection04CardBtn" href="javascript:void(0)">Join Now <i
+                                <a class="homeSection04CardBtn" href="{{route('pricing')}}">Join Now <i
                                         class="fas fa-chevron-right"></i></a>
                             </div>
                         </div>
@@ -382,14 +382,14 @@
                                     Our acting course will prepare you for casting calls, auditions and how to become a
                                     working paid actor.
                                 </p>
-                                <a class="homeSection04CardBtn" href="javascript:void(0)">Join Now <i
+                                <a class="homeSection04CardBtn" href="{{route('pricing')}}">Join Now <i
                                         class="fas fa-chevron-right"></i></a>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-5 mt-5 m-auto">
-                    <a class="viewAll" href="javascript:void(0)">View All</a>
+                    <a class="viewAll" href="{{route('pricing')}}">View All</a>
                 </div>
             </div>
         </section>
@@ -400,7 +400,7 @@
                     <div class="homeSection04Card" data-aos="fade-right">
                         <h2>Have Questions? <span>Send us an email!</span></h2>
                         <div class="col-lg-7 m-auto">
-                            <form action="javascript:void(0)">
+                            <form action="{{route('pricing')}}">
                                 <div class="input-group mb-3">
                                     <input type="text" class="form-control" placeholder="Enter your email"
                                            aria-label="Enter your email" aria-describedby="basic-addon2">

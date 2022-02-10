@@ -53,7 +53,11 @@
 
                                         <div class="mt-4">
                                             <form method="POST" class="form-horizontal" action="{{ route('register') }}"
-                                                  enctype="multipart/form-data">
+                                                class="require-validation"
+                                                data-cc-on-file="false"
+                                                data-stripe-publishable-key="{{ env('STRIPE_KEY') }}"
+                                                id="payment-form"
+                                                enctype="multipart/form-data">
                                                 @csrf
                                                 <div class="mb-3">
                                                     <label for="useremail" class="form-label">Email</label>
@@ -91,6 +95,76 @@
                                                            required
                                                            placeholder="Enter username">
                                                     @error('phone')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+
+                                                <div class="mb-3">
+                                                    <label for="username" class="form-label">Name on Card</label>
+                                                    <input type="text"
+                                                           class="form-control @error('cardName') is-invalid @enderror"
+                                                           value="{{ old('cardName') }}" id="cardName" name="cardName" autofocus
+                                                           required
+                                                           placeholder="Enter Name on Card">
+                                                    @error('cardName')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+
+                                                <div class="mb-3">
+                                                    <label for="username" class="form-label">Card Number</label>
+                                                    <input type="number"
+                                                           class="form-control @error('cardNumber') is-invalid @enderror"
+                                                           value="{{ old('cardNumber') }}" id="cardNumber" name="cardNumber" autofocus
+                                                           required
+                                                           placeholder="Enter Card Number">
+                                                    @error('cardNumber')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+
+                                                <div class="mb-3">
+                                                    <label for="username" class="form-label">CVC</label>
+                                                    <input type="number"
+                                                           class="form-control @error('cvs') is-invalid @enderror"
+                                                           value="{{ old('cvs') }}" id="cvs" name="cvs" autofocus
+                                                           required
+                                                           placeholder="Enter CVC">
+                                                    @error('cvs')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+
+                                                <div class="mb-3">
+                                                    <label for="username" class="form-label">Expiration Month</label>
+                                                    <input type="number"
+                                                           class="form-control @error('month') is-invalid @enderror"
+                                                           value="{{ old('month') }}" id="month" name="month" autofocus
+                                                           required
+                                                           placeholder="Enter Expiration Month">
+                                                    @error('month')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+
+                                                <div class="mb-3">
+                                                    <label for="username" class="form-label">Expiration Year</label>
+                                                    <input type="number"
+                                                           class="form-control @error('year') is-invalid @enderror"
+                                                           value="{{ old('year') }}" id="year" name="year" autofocus
+                                                           required
+                                                           placeholder="Enter Expiration Year">
+                                                    @error('year')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
                                                     </span>
@@ -172,6 +246,7 @@
                                                                                            class="text-primary">Terms of
                                                             Use</a></p>
                                                 </div>
+                                                    <input type="text" name="price" value="{{Session::get('amount')}}">
                                             </form>
 
                                             <div class="mt-3 text-center">
@@ -214,4 +289,62 @@
         <script src="{{ URL::asset('/assets/libs/owl.carousel/owl.carousel.min.js') }}"></script>
         <!-- auth-2-carousel init -->
         <script src="{{ URL::asset('/assets/js/pages/auth-2-carousel.init.js') }}"></script>
+
+
+        <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+  
+<script type="text/javascript">
+$(function() {
+   
+    var $form         = $(".require-validation");
+   
+    $('form.require-validation').bind('submit', function(e) {
+        var $form         = $(".require-validation"),
+        inputSelector = ['input[type=email]', 'input[type=password]',
+                         'input[type=text]', 'input[type=file]',
+                         'textarea'].join(', '),
+        $inputs       = $form.find('.required').find(inputSelector),
+        $errorMessage = $form.find('div.error'),
+        valid         = true;
+        $errorMessage.addClass('hide');
+  
+        $('.has-error').removeClass('has-error');
+        $inputs.each(function(i, el) {
+          var $input = $(el);
+          if ($input.val() === '') {
+            $input.parent().addClass('has-error');
+            $errorMessage.removeClass('hide');
+            e.preventDefault();
+          }
+        });
+   
+        if (!$form.data('cc-on-file')) {
+          e.preventDefault();
+          Stripe.setPublishableKey($form.data('stripe-publishable-key'));
+          Stripe.createToken({
+            number: $('.card-number').val(),
+            cvc: $('.card-cvc').val(),
+            exp_month: $('.card-expiry-month').val(),
+            exp_year: $('.card-expiry-year').val()
+          }, stripeResponseHandler);
+        }
+  
+  });
+  
+  function stripeResponseHandler(status, response) {
+        if (response.error) {
+            $('.error')
+                .removeClass('hide')
+                .find('.alert')
+                .text(response.error.message);
+        } else {
+            /* token contains id, last4, and card type */
+            var token = response['id'];
+               
+            $form.find('input[type=text]').empty();
+            $form.append("<input type='hidden' name='stripeToken' value='" + token + "'/>");
+            $form.get(0).submit();
+        }
+    }
+    </script>
 @endsection

@@ -14,13 +14,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::view('/','front.home');
-Route::get('/about', [App\Http\Controllers\FrontendController::class, 'about']);
-Route::get('/acting', [App\Http\Controllers\FrontendController::class, 'acting']);
-Route::get('/classes', [App\Http\Controllers\FrontendController::class, 'classes']);
-Route::get('/contact', [App\Http\Controllers\FrontendController::class, 'contact']);
-Route::get('/digital', [App\Http\Controllers\FrontendController::class, 'digital']);
-Route::get('/filmmaker', [App\Http\Controllers\FrontendController::class, 'filmmaker']);
+Route::view('/','front.home')->name('home');
+Route::view('/about','front.about-us')->name('about');
+Route::view('/acting','front.acting-academy')->name('acting');
+Route::view('/classes','front.classes')->name('classes');
+Route::view('/contact','front.contact')->name('contact');
+Route::view('/digital','front.digital-marketing')->name('digital');
+Route::view('/filmmaker','front.filmmaker-academy')->name('filmmaker');
+Route::view('/pricing','front.pricing')->name('pricing');
+Route::view('/crypto','front.crypto')->name('crypto');
+// Route::get('/about', [App\Http\Controllers\FrontendController::class, 'about']);
+// Route::get('/acting', [App\Http\Controllers\FrontendController::class, 'acting']);
+// Route::get('/classes', [App\Http\Controllers\FrontendController::class, 'classes']);
+// Route::get('/contact', [App\Http\Controllers\FrontendController::class, 'contact']);
+// Route::get('/digital', [App\Http\Controllers\FrontendController::class, 'digital']);
+// Route::get('/filmmaker', [App\Http\Controllers\FrontendController::class, 'filmmaker']);
 
 Auth::routes();
 //Auth::routes(['register' => true]);
