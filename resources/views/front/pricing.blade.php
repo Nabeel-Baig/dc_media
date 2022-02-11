@@ -22,10 +22,16 @@
          <h2 class=""><span>Pricing</span></h2>
       </div>
       <div class="row mt-3 our-pricing">
-         <div class="col-lg-2"></div>
-         <div class="col-lg-3 mb-5 m-auto mt-0">
+         <div class="col-lg-4 mb-5 m-auto mt-0 membership">
             <div class="card shadow">
-               <p class="card-header text-orange">Membership Benefits</p>
+               <div class="card-header">
+                  <p class="text-orange mb-0">
+                     Membership
+                     <span class=" bg-orange text-light rounded-pill text-center p-2  bonus-pill float-end d-none">
+                        50% off for signup now
+                     </span>
+                  </p>
+               </div>
                <ul class="list-group list-group-flush">
                   <li>
                      Space Rental for Photoshoot, Video Production, and workshops or training
@@ -73,9 +79,11 @@
             </div>
             <!-- <div href="#" class="button btn btn-primary bg-orange w-100 shadow-lg border-0">Order Now 1,644 $</div> -->
             <!-- <button type="button" href="{{route('register')}}" class="button btn btn-primary bg-orange w-100 shadow-lg border-0">Order Now 1,644 $</button> -->
-            <a href="{{ route('price',['id' => 'membership-benefits'] )}}"  class="button btn btn-primary bg-orange w-100 shadow-lg border-0">Order Now 1,644 $</a>
+            <a href="{{ route('price',['id' => 'membership-benefits'] )}}" class="button btn btn-primary bg-orange w-100 shadow-lg border-0">Order Now 1,644 $</a>
          </div>
-         <div class="col-lg-3 m-auto mt-0">
+      </div>
+      <div class="row our-pricing">
+         <div class="col-lg-4 m-auto mt-0">
             <div class="card shadow">
                <p class="card-header text-orange">Non Member</p>
                <ul class="list-group list-group-flush">
@@ -106,7 +114,6 @@
             </div>
             <a href="{{ route('price',['id' => 'non-member'] )}}" class="button btn btn-primary bg-orange w-100 shadow-lg border-0">Order Now 1,939 $</a>
          </div>
-         <div class="col-lg-2"></div>
       </div>
    </div>
 </section>
@@ -121,7 +128,7 @@
          <div class="col-lg-3 mb-5">
             <div class="card homeSection04Card shadow" data-aos="zoom-in-up" data-aos="zoom-in-up">
                <div class="card-body">
-               <img class="w-100" src="{{ asset('assets/front/') }}/Images/pricing/banner.jpg" alt="{{ asset('assets/front/') }}/Images/pricing/banner.jpg">
+                  <img class="w-100" src="{{ asset('assets/front/') }}/Images/pricing/banner.jpg" alt="{{ asset('assets/front/') }}/Images/pricing/banner.jpg">
                   <div class="col-lg-12 m-auto mt-4 text-center">
                      <div class="homeSection04Card">
                         <h6>BASIC <span>EDITING</span></h6>

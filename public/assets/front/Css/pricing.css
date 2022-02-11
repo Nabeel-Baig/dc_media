@@ -267,3 +267,25 @@ button.bg-orange {
   background-color: #de5001 !important ;
   color: #fff;
 }
+.bonus-pill {
+  font-size: 12px;
+}
+.membership {
+  position: relative;
+}
+.membership::before {
+  content: "50% off for signup now";
+  position: absolute;
+  left: -165px;
+  transform: rotate(-90deg);
+  background: #de5001;
+  color: #fff;
+  padding: 10px 5px;
+  width: 100%;
+  text-align: center;
+  font-size: 1.3rem;
+  top: 180px;
+  height: 100%;
+  max-width: 300px;
+  max-height: 55px;
+}

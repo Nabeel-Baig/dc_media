@@ -1,33 +1,34 @@
-@media screen and (max-width: 1366px){
-    .floatingCards{
+@media screen and (max-width: 1366px) {
+    .floatingCards {
         max-width: 290px !important;
         max-height: 150px !important;
     }
-    
-    .homeSection01{
+    .homeSection01 {
         padding-top: 120px !important;
     }
-    
-    .card01{
+    .card01 {
         right: 0 !important;
         top: 0px !important;
     }
-    
-    .card03{
+    .card03 {
         right: 0px !important;
     }
-    
-    .card04{
+    .card04 {
         top: 190px !important;
     }
-    
 }
 
-@media screen and (max-width: 1024px){
+@media screen and (max-width: 1024px) {
+    .bonus-pill {
+        width: 200px !important;
+        font-size: 12px !important;
+    }
+    .bonus-pill:hover {
+        color: #000 !important;
+    }
     .navbar-light .navbar-nav .nav-link {
         font-size: 0.6rem !important;
     }
-    
     .floatingCards {
         max-width: 200px !important;
         max-height: 190px !important;
@@ -39,20 +40,23 @@
         margin-top: 110px;
         text-align: center;
     }
-
+    .bonus-pill {
+        display: block !important;
+    }
+    .membership::before {
+        display: none !important;
+    }
     .mainBannerCard h1 span::before {
         padding: 27px 44px !important;
         top: -7px !important;
     }
-
     .mainBannerCard h1 {
         line-height: 1.5;
     }
-
     .card01,
     .card02,
     .card03,
-    .card04{
+    .card04 {
         position: relative !important;
         right: 0px !important;
         top: 0px !important;
@@ -61,19 +65,16 @@
         max-height: 100% !important;
         max-width: 100% !important;
     }
-
     .flotingCardImg {
         width: 100%;
         max-width: 23px;
     }
-
     .card-blue,
     .card-orange,
     .card-pink,
     .card-darkBlue {
         margin-top: 20px !important;
     }
-
     .navbar-collapse {
         background-color: rgba(0, 0, 0, 0.6) !important;
         backdrop-filter: blur(10px);
@@ -82,12 +83,10 @@
         width: 100%;
         padding: 10px;
     }
-
     .navbar a,
     .navbar-light .navbar-nav .nav-link {
         color: #fff !important;
     }
-
     .circle,
     .phoneHeader::before {
         display: none !important;
@@ -95,7 +94,6 @@
     .navbar-toggler.collapsed span {
         color: #de5001;
     }
-
     .StudentReviews .content h6::before {
         font-size: 1.5rem !important;
         left: 0px !important;
@@ -103,8 +101,7 @@
     .homeSection03 {
         background-position: center center !important;
     }
-    
-    .active::before{
+    .active::before {
         background-position: left !important;
         background-size: 30% 100% !important;
         left: -4px;
