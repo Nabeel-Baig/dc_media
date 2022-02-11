@@ -24,6 +24,24 @@
                 <h2><span>Acting Academy</span></h2>
             </div>
             <div class="row mt-5">
+                <div class="col-lg-5 m-auto">
+                    <img class="w-100 shadow rounded" src="{{asset('assets/front/Images/actingAcademy/sec1.jfif')}}" alt="{{asset('Images/actingAcademy/sec1.jfif')}}">
+                </div>
+                <div class="col-lg-7 m-auto">
+                    <h4 class="">1,800$ for 6 Week Program Overview</h4>
+                    <h6 class="text-muted">At Washington Digital Media we offer full-service video production</h6>
+                    <strong>Convenient Classes</strong>
+                    <p class="text-muted">
+                        Weekends and Nights
+                    </p>
+                    <p>
+                        Join our MeetUp group to see times and dates for classes.
+                    </p>
+                    <div class="text-start">
+                        <a class="viewAll m-0" href="javascript:void(0)">Register</a>
+                    </div>
+
+                </div>
                 <div class="col-lg-7 m-auto">
                     <p>
                         DC, Maryland, and Virginia is becoming a film production town and the demand for well-trained actors for film and television is growing.
@@ -75,9 +93,9 @@
                     </div>
                 </div>
             </div>
-                <div class="col-lg-5 mt-4 m-auto">
-                    <a class="viewAll" href="javascript:void(0)">SIGN UP NOW</a>
-                </div>
+            <div class="col-lg-5 mt-4 m-auto">
+                <a class="viewAll" href="javascript:void(0)">SIGN UP NOW</a>
+            </div>
         </div>
     </section>
 
