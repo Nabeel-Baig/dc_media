@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
+use App\Models\Payment;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
@@ -52,18 +53,26 @@ class RegisterController extends Controller
      */
     protected function validator(array $data )
     {
+        /* Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+        $customer = Stripe\Charge::create ([
+            "amount" => \request()->session()->get('amount') * 100,
+            "currency" => "usd",
+            "source" => $data['stripeToken'],
+            "description" => "OneShot Technologies"
+    ]);
+    echo "<pre>";
+    print_r($customer->source->country);die; */
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'cardName' => ['required', 'string', 'max:255'],
-            'cardNumber' => ['required', 'min:15', 'string', 'max:16'],
+            'cardNumber' => ['required','max:16'],
             'cvs' => ['required',  'min:3','string', 'max:4'],
-            'month' => ['required',  'min:2','integer' , 'max:2'],
-            'year' => ['required',  'min:4','string', 'max:5'],
+            'month' => ['required',  'min:1','string' , 'max:2'],
+            'year' => ['required',  'min:2','string', 'max:2'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:6', 'confirmed'],
             'dob' => ['required', 'date', 'before:today'],
         ]);
-        dd($data);
     }
 
     /**
@@ -81,38 +90,6 @@ class RegisterController extends Controller
             $avatar->move($avatarPath, $avatarName);
         }
 
-
-        Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
-        $customer = Stripe\Charge::create ([
-                "amount" => 100 *100,
-                "currency" => "usd",
-                "source" => $data->stripeToken,
-                "description" => "OneShot Technologies"
-        ]);
-        echo "<pre>";
-        print_r($customer);die;
-
-        // insert
-        // $payment = new Payment();
-        // $payment->stripe_id = $customer->stripe_id;
-        // $payment->amount = $customer->amount;
-        // $payment->balance_transaction = $customer->balance_transaction;
-        // $payment->currency = $customer->currency;
-        // $payment->description = $customer->description;
-        // $payment->payment_id = $customer->payment_id;
-        // $payment->country = $customer->country;
-        // $payment->exp_month = $customer->exp_month;
-        // $payment->exp_year = $customer->exp_year;
-        // $payment->fingerprint = $customer->fingerprint;
-        // $payment->card_number = $customer->card_number;
-        // $payment->receipt_url = $customer->receipt_url;
-        // $payment->save();
-
-
-
-
-
-
         $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
@@ -121,6 +98,34 @@ class RegisterController extends Controller
             'avatar' => "/assets/uploads/users/" . $avatarName,
         ]);
         $user->roles()->sync(3);
+
+        
+        Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+        $customer = Stripe\Charge::create ([
+                "amount" => (int)\request()->session()->get('amount') * 100,
+                "currency" => "usd",
+                "source" => $data['stripeToken'],
+                "description" => \request()->session()->get('package_name')
+        ]);
+        // dd($customer);
+       
+        if($customer->status == 'succeeded'){
+            $payment = new Payment();
+            $payment->user_id = $user->id;
+            $payment->stripe_id = $data['stripeToken'];
+            $payment->amount = \request()->session()->get('amount');
+            $payment->balance_transaction = $customer->balance_transaction;
+            $payment->currency = $customer->currency;
+            $payment->description = $customer->description;
+            $payment->payment_id = $customer->id;;
+            $payment->country = $customer->source->country;
+            $payment->exp_month = $customer->source->exp_month;
+            $payment->exp_year = $customer->source->exp_year;
+            $payment->fingerprint = $customer->source->fingerprint;
+            $payment->card_number = $customer->source->last4;
+            $payment->receipt_url = $customer->receipt_url;
+            $payment->save();
+        }
         return $user;
     }
 }

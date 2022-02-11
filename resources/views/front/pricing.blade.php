@@ -73,8 +73,9 @@
             </div>
             <!-- <div href="#" class="button btn btn-primary bg-orange w-100 shadow-lg border-0">Order Now 1,644 $</div> -->
             <!-- <button type="button" href="{{route('register')}}" class="button btn btn-primary bg-orange w-100 shadow-lg border-0">Order Now 1,644 $</button> -->
-            <a href="{{route('price',['id' => 'membership-benefits'])}}" class="button btn btn-primary bg-orange w-100 shadow-lg border-0">Order Now 1,644 $</a>
+            <a href="{{ route('price',['id' => 'membership-benefits'] )}}"  class="button btn btn-primary bg-orange w-100 shadow-lg border-0">Order Now 1,644 $</a>
          </div>
+         
          <div class="col-lg-3 m-auto mt-0">
             <div class="card shadow">
                <p class="card-header text-orange">Non Member</p>
@@ -104,7 +105,8 @@
                   <li>$400 3 Hours</li>
                </ul>
             </div>
-               <a href="{{ route('price',['id' => 'non-member'] )}}" class="button btn btn-primary bg-orange w-100 shadow-lg border-0">Order Now 1,939 $</a>
+            <a href="{{ route('price',['id' => 'non-member'] )}}" class="button btn btn-primary bg-orange w-100 shadow-lg border-0">Order Now 1,939 $</a>
+
          </div>
          <div class="col-lg-2"></div>
       </div>
@@ -121,7 +123,7 @@
          <div class="col-lg-3 mb-5">
             <div class="card homeSection04Card shadow" data-aos="zoom-in-up" data-aos="zoom-in-up">
                <div class="card-body">
-                  <img class="w-100" src="{{ asset('assets/front/') }}/Images/pricing/banner.jpg" alt="{{ asset('assets/front/') }}/Images/pricing/banner.jpg">
+               <img class="w-100" src="{{ asset('assets/front/') }}/Images/pricing/banner.jpg" alt="{{ asset('assets/front/') }}/Images/pricing/banner.jpg">
                   <div class="col-lg-12 m-auto mt-4 text-center">
                      <div class="homeSection04Card">
                         <h6>BASIC <span>EDITING</span></h6>
