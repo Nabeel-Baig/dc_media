@@ -53,15 +53,6 @@ class RegisterController extends Controller
      */
     protected function validator(array $data )
     {
-        /* Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
-        $customer = Stripe\Charge::create ([
-            "amount" => \request()->session()->get('amount') * 100,
-            "currency" => "usd",
-            "source" => $data['stripeToken'],
-            "description" => "OneShot Technologies"
-    ]);
-    echo "<pre>";
-    print_r($customer->source->country);die; */
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'cardName' => ['required', 'string', 'max:255'],
@@ -99,7 +90,6 @@ class RegisterController extends Controller
         ]);
         $user->roles()->sync(3);
 
-        
         Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
         $customer = Stripe\Charge::create ([
                 "amount" => (int)\request()->session()->get('amount') * 100,
@@ -107,7 +97,6 @@ class RegisterController extends Controller
                 "source" => $data['stripeToken'],
                 "description" => \request()->session()->get('package_name')
         ]);
-        // dd($customer);
        
         if($customer->status == 'succeeded'){
             $payment = new Payment();
@@ -127,5 +116,6 @@ class RegisterController extends Controller
             $payment->save();
         }
         return $user;
+        
     }
 }

@@ -75,7 +75,6 @@
             <!-- <button type="button" href="{{route('register')}}" class="button btn btn-primary bg-orange w-100 shadow-lg border-0">Order Now 1,644 $</button> -->
             <a href="{{ route('price',['id' => 'membership-benefits'] )}}"  class="button btn btn-primary bg-orange w-100 shadow-lg border-0">Order Now 1,644 $</a>
          </div>
-         
          <div class="col-lg-3 m-auto mt-0">
             <div class="card shadow">
                <p class="card-header text-orange">Non Member</p>
@@ -106,7 +105,6 @@
                </ul>
             </div>
             <a href="{{ route('price',['id' => 'non-member'] )}}" class="button btn btn-primary bg-orange w-100 shadow-lg border-0">Order Now 1,939 $</a>
-
          </div>
          <div class="col-lg-2"></div>
       </div>
