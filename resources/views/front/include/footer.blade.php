@@ -42,19 +42,19 @@
                     <h6 class="mb-0">Quick Links</h6>
                     <ul class="FooterLinks mt-5 ps-0">
                         <li>
-                            <a href="javascript:void(0)">Check out our YouTube Videos</a>
+                            <a href="https://youtube.com/c/WashingtonDigitalMediaWashingtonDC">Check out our YouTube Videos</a>
                         </li>
                         <li>
-                            <a href="javascript:void(0)">About Us - Our Stories</a>
+                            <a href="{{route('about')}}">About Us - Our Stories</a>
                         </li>
                         <li>
-                            <a href="javascript:void(0)">Finance your course</a>
+                            <a href="https://www.paypal.com/ppcreditapply/da/us/lander">Finance your course</a>
                         </li>
                         <!-- <li>
-                            <a href="javascript:void(0)">Education</a>
+                            <a href="">Education</a>
                         </li> -->
                         <li>
-                            <a href="javascript:void(0)">Learn about Washington Digital Media</a>
+                            <a href="https://www.washingtondigitalmedia.com/">Learn about Washington Digital Media</a>
                         </li>
                     </ul>
                 </div>
