@@ -28,7 +28,7 @@ class HomeController extends Controller
 
     public function root()
     {
-        return view('index')->with('message','Data added Successfully');
+        return view('index')->with('success', 'Thanks for registering!');
     }
 
     /*Language Translation*/

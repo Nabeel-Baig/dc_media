@@ -13,7 +13,7 @@ class PriceController extends Controller
         {
             $request->session()->put([
                 'package_name' => \request()->get('id'),
-                'amount' => 1644
+                'amount' => 250
             ]);
             return redirect()->route('register');
 
@@ -21,7 +21,14 @@ class PriceController extends Controller
         {
             $request->session()->put([
                 'package_name' => \request()->get('id'),
-                'amount' => 1939
+                'amount' => 0
+            ]);
+            return redirect()->route('register');
+        }elseif (\request()->get('id') == 'acting-academy')
+        {
+            $request->session()->put([
+                'package_name' => \request()->get('id'),
+                'amount' => 1800
             ]);
             return redirect()->route('register');
         }

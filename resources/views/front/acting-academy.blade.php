@@ -38,7 +38,7 @@
                         Join our MeetUp group to see times and dates for classes.
                     </p>
                     <div class="text-start">
-                        <a class="viewAll m-0" href="javascript:void(0)">Register</a>
+                        <a class="viewAll m-0" href="{{ route('price',['id' => 'acting-academy'] )}}">Register</a>
                     </div>
 
                 </div>

@@ -49,7 +49,11 @@
                                     </div>
 
                                     <div class="mt-4">
+                                    @if (session()->get('package_name') == 'membership-benefits' || session()->get('package_name') == 'acting-academy')
                                         <form method="POST" class="form-horizontal validation" action="{{ route('register') }}" data-cc-on-file="false" data-stripe-publishable-key="{{ env('STRIPE_KEY') }}" id="payment-form" enctype="multipart/form-data">
+                                    @else
+                                        <form method="POST" class="form-horizontal validation" action="{{ route('register') }}">
+                                    @endif
                                             @csrf
                                             <div class="mb-3 required">
                                                 <label for="useremail" class="form-label">Email</label>
@@ -81,6 +85,7 @@
                                                 @enderror
                                             </div>
 
+                                        @if (session()->get('package_name') == 'membership-benefits' || session()->get('package_name') == 'acting-academy')
                                             <div class="mb-3 required">
                                                 <label for="cardName" class="form-label">Name on Card</label>
                                                 <input type="text" class="form-control @error('cardName') is-invalid @enderror" value="{{ old('cardName') }}" id="cardName" name="cardName" autofocus required placeholder="Enter Name on Card">
@@ -111,7 +116,55 @@
                                                 @enderror
                                             </div>
 
+
                                             <div class="mb-3 required">
+                                                <label for="year" class="form-label">Expiration Year</label>
+                                                <div class="year">
+                                                    <select type="number" class="form-control card-expiry-year @error('year') is-invalid @enderror" value="{{ old('year') }}" id="year" name="year" autofocus required placeholder="Expiration Year">
+                                                        <option selected>Expiration Year</option>
+                                                        <option value="22">22</option>
+                                                        <option value="23">23</option>
+                                                        <option value="24">24</option>
+                                                        <option value="25">25</option>
+                                                        <option value="26">26</option>
+                                                    </select>
+                                                    @error('year')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </div>
+
+                                            <div class="mb-3 required">
+                                                <label for="username" class="form-label ">Expiration Month</label>
+                                                <div class="month">
+                                                    <select type="number" class="form-control card-expiry-month @error('month') is-invalid @enderror" value="{{ old('month') }}" id="month" name="month" autofocus required placeholder="Enter Expiration Month">
+                                                        <option selected>Expiration Month</option>
+                                                        <option value="1">01</option>
+                                                        <option value="2">02</option>
+                                                        <option value="3">03</option>
+                                                        <option value="3">04</option>
+                                                        <option value="3">05</option>
+                                                        <option value="3">06</option>
+                                                        <option value="3">07</option>
+                                                        <option value="3">08</option>
+                                                        <option value="3">09</option>
+                                                        <option value="3">10</option>
+                                                        <option value="3">11</option>
+                                                        <option value="3">12</option>
+                                                    </select>
+                                                    @error('month')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </div>
+
+
+
+                                            <!-- <div class="mb-3 required">
                                                 <label for="username" class="form-label">Expiration Month</label>
                                                 <input type="number" class="form-control card-expiry-month @error('month') is-invalid @enderror" value="{{ old('month') }}" id="month" name="month" autofocus required placeholder="Enter Expiration Month">
                                                 @error('month')
@@ -123,14 +176,14 @@
 
                                             <div class="mb-3 required">
                                                 <label for="username" class="form-label">Expiration Year</label>
-                                                <input type="number" class="form-control card-expiry-year @error('year') is-invalid @enderror" value="{{ old('year') }}" id="year" name="year" autofocus required placeholder="Enter Expiration Year">
+                                                <input type="number" class="form-control card-expiry-year @error('year') is-invalid @enderror" value="{{ old('year') }}" id="year" name="year" autofocus required placeholder="Enter Expiration Month">
                                                 @error('year')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
                                                 </span>
                                                 @enderror
-                                            </div>
-
+                                            </div> -->
+                                        @endif
                                             <div class="mb-3 required">
                                                 <label for="userpassword" class="form-label">Password</label>
                                                 <input type="password" class="form-control @error('password') is-invalid @enderror" id="userpassword" name="password" placeholder="Enter password" autofocus required>
@@ -152,7 +205,7 @@
                                                 @enderror
                                             </div>
 
-                                            <div class="mb-3 required">
+                                            <!-- <div class="mb-3 required">
                                                 <label for="userdob">Date of Birth</label>
                                                 <div class="input-group" id="datepicker1">
                                                     <input type="text" class="form-control @error('dob') is-invalid @enderror" placeholder="dd-mm-yyyy" data-date-format="dd-mm-yyyy" data-date-container='#datepicker1' data-date-end-date="0d" value="{{ old('dob') }}" data-provide="datepicker" name="dob" autofocus required>
@@ -176,14 +229,15 @@
                                                     <strong>{{ $message }}</strong>
                                                 </span>
                                                 @enderror
-                                            </div>
+                                            </div> -->
+                                        @if (session()->get('package_name') == 'membership-benefits' || session()->get('package_name') == 'acting-academy')
 
                                             <div class="mb-3">
                                                 <div class='col-md-12 hide error form-group'>
                                                     <div class='alert-danger alert'>Fix the errors before you begin.</div>
                                                 </div>
                                             </div>
-
+                                        @endif
                                             <div class="mt-4 d-grid">
                                                 <button class="btn btn-primary waves-effect waves-light" type="submit">Register
                                                 </button>
@@ -238,6 +292,8 @@
     <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
 
     <script type="text/javascript">
+        
+        @if (\request()->session()->get('package_name') == 'membership-benefits' || \request()->session()->get('package_name') == 'acting-academy' )
         $(function() {
             var $form = $(".validation");
             $('form.validation').bind('submit', function(e) {
@@ -289,5 +345,6 @@
             }
 
         });
+    @endif
     </script>
     @endsection

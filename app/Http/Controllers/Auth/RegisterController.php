@@ -54,15 +54,14 @@ class RegisterController extends Controller
     protected function validator(array $data )
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'cardName' => ['required', 'string', 'max:255'],
-            'cardNumber' => ['required','max:16'],
-            'cvs' => ['required',  'min:3','string', 'max:4'],
-            'month' => ['required',  'min:1','string' , 'max:2'],
-            'year' => ['required',  'min:2','string', 'max:2'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:6', 'confirmed'],
-            'dob' => ['required', 'date', 'before:today'],
+            // 'name' => ['required', 'string', 'max:255'],
+            // 'cardName' => ['required', 'string', 'max:255'],
+            // 'cardNumber' => ['required','max:16'],
+            // 'cvs' => ['required',  'min:3','string', 'max:4'],
+            // 'month' => ['required',  'min:1','string' , 'max:2'],
+            // 'year' => ['required',  'min:2','string', 'max:2'],
+            // 'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            // 'password' => ['required', 'string', 'min:6', 'confirmed'],
         ]);
     }
 
@@ -74,47 +73,50 @@ class RegisterController extends Controller
      */
     protected function create(array $data )
     {
-        if (request()->has('avatar')) {
-            $avatar = request()->file('avatar');
-            $avatarName = time() . '.' . $avatar->getClientOriginalExtension();
-            $avatarPath = public_path('/assets/uploads/users/');
-            $avatar->move($avatarPath, $avatarName);
-        }
-
+        // if (request()->has('avatar')) {
+        //     $avatar = request()->file('avatar');
+        //     $avatarName = time() . '.' . $avatar->getClientOriginalExtension();
+        //     $avatarPath = public_path('/assets/uploads/users/');
+        //     $avatar->move($avatarPath, $avatarName);
+        // }
         $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-            'dob' => date('Y-m-d', strtotime($data['dob'])),
-            'avatar' => "/assets/uploads/users/" . $avatarName,
+            // 'dob' => date('Y-m-d', strtotime($data['dob'])),
+            // 'avatar' => "/assets/uploads/users/" . $avatarName,
         ]);
         $user->roles()->sync(3);
 
-        Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
-        $customer = Stripe\Charge::create ([
-                "amount" => (int)\request()->session()->get('amount') * 100,
-                "currency" => "usd",
-                "source" => $data['stripeToken'],
-                "description" => \request()->session()->get('package_name')
-        ]);
-       
-        if($customer->status == 'succeeded'){
-            $payment = new Payment();
-            $payment->user_id = $user->id;
-            $payment->stripe_id = $data['stripeToken'];
-            $payment->amount = \request()->session()->get('amount');
-            $payment->balance_transaction = $customer->balance_transaction;
-            $payment->currency = $customer->currency;
-            $payment->description = $customer->description;
-            $payment->payment_id = $customer->id;;
-            $payment->country = $customer->source->country;
-            $payment->exp_month = $customer->source->exp_month;
-            $payment->exp_year = $customer->source->exp_year;
-            $payment->fingerprint = $customer->source->fingerprint;
-            $payment->card_number = $customer->source->last4;
-            $payment->receipt_url = $customer->receipt_url;
-            $payment->save();
+        if (\request()->session()->get('package_name') == 'membership-benefits' || \request()->session()->get('package_name') == 'acting-academy')
+        {
+            Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+            $customer = Stripe\Charge::create ([
+                    "amount" => (int)\request()->session()->get('amount') * 100,
+                    "currency" => "usd",
+                    "source" => $data['stripeToken'],
+                    "description" => \request()->session()->get('package_name')
+            ]);
+        
+            if($customer->status == 'succeeded'){
+                $payment = new Payment();
+                $payment->user_id = $user->id;
+                $payment->stripe_id = $data['stripeToken'];
+                $payment->amount = \request()->session()->get('amount');
+                $payment->balance_transaction = $customer->balance_transaction;
+                $payment->currency = $customer->currency;
+                $payment->description = $customer->description;
+                $payment->payment_id = $customer->id;;
+                $payment->country = $customer->source->country;
+                $payment->exp_month = $customer->source->exp_month;
+                $payment->exp_year = $customer->source->exp_year;
+                $payment->fingerprint = $customer->source->fingerprint;
+                $payment->card_number = $customer->source->last4;
+                $payment->receipt_url = $customer->receipt_url;
+                $payment->save();
+            }
         }
+
         return $user;
         
     }

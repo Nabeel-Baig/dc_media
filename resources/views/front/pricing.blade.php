@@ -77,9 +77,7 @@
                   </li>
                </ul>
             </div>
-            <!-- <div href="#" class="button btn btn-primary bg-orange w-100 shadow-lg border-0">Order Now 1,644 $</div> -->
-            <!-- <button type="button" href="{{route('register')}}" class="button btn btn-primary bg-orange w-100 shadow-lg border-0">Order Now 1,644 $</button> -->
-            <a href="{{ route('price',['id' => 'membership-benefits'] )}}" class="button btn btn-primary bg-orange w-100 shadow-lg border-0">Order Now 1,644 $</a>
+            <a href="{{ route('price',['id' => 'membership-benefits'] )}}" class="button btn btn-primary bg-orange w-100 shadow-lg border-0">Register Now $250</a>
          </div>
       </div>
       <div class="row our-pricing">
@@ -112,7 +110,7 @@
                   <li>$400 3 Hours</li>
                </ul>
             </div>
-            <a href="{{ route('price',['id' => 'non-member'] )}}" class="button btn btn-primary bg-orange w-100 shadow-lg border-0">Order Now 1,939 $</a>
+            <a href="{{ route('price',['id' => 'non-member'] )}}" class="button btn btn-primary bg-orange w-100 shadow-lg border-0">Register For Free</a>
          </div>
       </div>
    </div>

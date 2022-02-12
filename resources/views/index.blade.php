@@ -7,14 +7,7 @@
 @slot('li_1') Dashboards @endslot
 @slot('title') Dashboard @endslot
 @endcomponent
-@if(Session::has('message'))
-toastr.options =
-{
-"closeButton" : true,
-"progressBar" : true
-}
-toastr.success("{{ session('message') }}");
-@endif
+
 
 
 <style>
@@ -110,11 +103,23 @@ toastr.success("{{ session('message') }}");
             </div>
         </div>
         <!-- end row -->
-
     </div>
 </div>
+<link rel="stylesheet" type="text/css" href="{{asset('https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css')}}">
+   
+   <script src="{{asset('https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js')}}"></script>
+   
+    <script>
+        @if(Session::get('success'))
+        toastr.options =
+        {
+            "closeButton" : true,
+            "progressBar" : true
+        }
+                toastr.success("{{ session('success') }}");
+        @endif
+      </script>
 <!-- end row -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-toaster/5.1.0/js/bootstrap-toaster.min.js" integrity="sha512-LKHDVlxKQ+ChADdnDsXJYU7LaUdGJk1X+Ab2rbFU11cqm+vhp2PGOWQIrl6K1NRZxHAdwPOYLPINPvUIEyBtVQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 
 
